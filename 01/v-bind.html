@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+
+		
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			<!-- v-bind 绑定该属性是动态变量,即可使用mustache语法 -->
+			<img v-bind:src="imgURL" alt="" >
+			
+			<a v-bind:href="aHref">百度一下</a>
+			
+			<!-- 语法糖(即简写方式): 	:-->
+			<a :href="aHref">百度一下</a>
+			
+			
+			
+			
+			
+		</div>
+		
+		
+		
+		<script src="../js/vue.js"></script>
+		<script>
+			
+			const app = new Vue({
+				el: '#app',
+				data : {
+					message: 'ABC',
+					
+					imgURL: 'https://img12.360buyimg.com/pop/s590x470_jfs/t1/114582/22/7412/55588/5ec396bdE756cff96/87ff3d1b10a4d68a.jpg.webp',
+					aHref: 'https://www.baidu.com'
+					
+				}
+				
+				
+				
+			});
+			
+			
+			
+			
+		</script>
+	</body>
+</html>
