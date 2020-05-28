@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<!-- 字面量增强写法 -->
+		<script type="text/javascript">
+			
+			 // const obj = new Object()
+			
+			/* const obj = {
+				name: 'AA',
+				age: 18,
+				run: function() {
+					console.log('IS A');
+				}
+				
+			} */
+			
+			const name = 'AA';
+			const age = 18;
+			gonst height = 1.88;
+			
+			
+			//ES5写法
+			// const obj = {
+			// 	name: name,
+			// 	age: age,
+			// 	height: height
+			// }
+			
+			
+			//ES6写法
+			const obj = {
+				name,
+				age,
+				height
+			}
+			
+			console.log(obj);
+			
+			
+			//函数ES5写法
+			
+			// const obj2 = {
+			// 	run: function() {
+			// 		console.log('ES5');
+			// 	}
+			// }
+			
+			
+			//ES6写法
+			const obj2 = {
+				run() {
+					console.log('ES6');
+				}
+			}
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- 1、   .stop修饰符的使用 -->
+		<!-- 点击div调用divClick，不触发btnClick -->
+		<div id="app">
+			<div @click="divClick">
+				DIV
+			<button @click.stop="btnClick">按钮</button>
+			
+			</div>
+			
+			<br>
+			
+			<!-- 2、  .prevent修饰符的使用 -->
+			
+			<form action="BaiDu">
+				<input type="submit" value="提交" @click.prevent="submitClick"/>
+			</form>
+			
+			<br>
+			
+			<!-- 3、   .监听某个键位的点击 -->
+			
+			<input type="text" @keyup="keyClick"/>
+			<br>
+			<br>
+			<input type="text" @keyup.enter="keyupClickEnter"/>
+			
+			<br>
+			<br>
+			<!-- 4、   .once修饰符的使用 -->
+			
+			<button type="button" @click.once="onceClick">onceClick</button>
+			
+		</div>
+		
+		
+		
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script>
+			
+			const app = new Vue({
+				el:'#app',
+				data: {
+					message: 'hallo'
+				},
+				methods: {
+					btnClick() {
+						console.log('btnClick');
+					},
+					divClick() {
+						console.log('divClick');
+					},
+					submitClick() {
+						console.log('submitClick');
+					},
+					keyClick() {
+						console.log('keyClick');
+					},
+					keyupClickEnter() {
+						console.log('Enter');
+					},
+					onceClick() {
+						console.log('onceClick');
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

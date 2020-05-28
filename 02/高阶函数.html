@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+	</head>
+	<body>
+			
+		
+		<script src="../js/vue.js"></script>
+		<script>
+			
+			
+			
+			
+			const nums = [10,20,30,200,250,150,40,99]
+			
+			//需求：获取小于100的数
+			
+			//1.	filter函数的使用
+			//过滤器filter，需要回调函数,但必须返回一个Boolean值
+			//当返回true时，函数内部会自动将这次回调的n加入到新的数组
+			//当返回false时，函数内部会过滤掉这次的n
+			 let newNums = nums.filter(function(n) {
+				return n<100
+			})
+			
+			//需求：将新数组的数*2
+			
+			//2.  map函数的使用
+			
+			//map每次返回一个值
+			let newNums2 = newNums.map(function(n) {
+				return n * 2
+			})
+			
+			
+			//需求：将新数组的数相加
+			
+			//reduce函数的使用
+			//作用：对数组中所有的内容进行汇总
+			
+			
+			
+			console.log(newNums);
+			console.log(newNums2);
+			console.log(newNums3);
+		</script>
+	</body>
+</html>

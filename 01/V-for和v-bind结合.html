@@ -17,55 +17,34 @@
 		
 		<div id="app">
 			
+						<!-- 遍历movies,并获得元素值与下标 -->
+									<!-- v-bind动态绑定class，当currentIndx === index时调用active -->
+													<!-- 给点击事件并设置参数为下标值 -->
 			<ul>
-				<li v-for="(m, index) in movies" v-bind:class="getClasses()" id="lis">
+				<li v-for="(m,index) in movies"
+				:class="{active: currentIndx === index}"
+				@click="lisClick(index)">
 				{{m}}
-				<br>
-				<button v-on:click="btnClick">按钮</button>
 				</li>
-				
 			</ul>
-			
-			
 		</div>
-		
-		
-		
-		
-		<!-- 
-		 -->
-		
-		
+
 		<script src="../js/vue.js"></script>
 		<script>
-			
-			var lisIndex = document.getElementById("lis");
-			
-			
-			console.log(lis);
-			
 			const app = new Vue({
 				el: '#app',
 				data : {
 					movies: ['A','B','C','D','E'],
-					isActive: true,
-					isLine: true
+					currentIndx: 0
 				},
 				methods:{
-					btnClick: function() {
-						this.isActive = !this.isActive;
-					},
-					getClasses: function() {
-						return {active: this.isActive, line: this.isLine}
+					lisClick(index) {
+						this.currentIndx = index;
 					}
 				}
-				
-				
-				
+								
 			});
-			
-			
-			
+				
 			
 		</script>
 	</body>

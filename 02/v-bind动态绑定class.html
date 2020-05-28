@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		
+		
+		<style>
+			
+			.active {
+				color: red;
+			}
+			
+		</style>
+		
+		
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			<!-- 绑定class，在其中添加一个对象，在对象中添加键值对，类名如果为true则添入class中 -->
+			<!-- <h2 v-bind:class="{类名1:Boolean,类名2:Boolean}"></h2> -->
+			<h2 :class="getClasses()">{{message}}</h2>
+			
+			<button v-on:click="btnClick">按钮</button>
+			
+		</div>
+		
+		
+		
+		<script src="../js/vue.js"></script>
+		<script>
+			
+			const app = new Vue({
+				el: '#app',
+				data : {
+					message: 'ABC',
+					isActive:	true,
+					isLine: true
+				},
+				methods: {
+					btnClick: function() {
+						this.isActive = !this.isActive
+					},
+					getClasses: function() {
+						return {active: this.isActive, line: this.isLine}
+					}
+				}
+				
+				
+				
+			});
+			
+			
+			
+			
+		</script>
+	</body>
+</html>
