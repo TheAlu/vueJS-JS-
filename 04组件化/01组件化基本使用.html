@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+	</head>
+	<body>
+		
+		
+		<div id="app">
+			
+			<!-- 3.调用组件 -->
+			<my-cpm></my-cpm>
+			<my-cpm></my-cpm>
+			<my-cpm></my-cpm>
+			<my-cpm></my-cpm>
+			
+		</div>
+		
+		
+		
+		<script src="../js/vue.js"></script>
+		<script>
+				
+			
+			// 1.创建组件构造器对象
+			
+			const cpmC = Vue.extends({
+				template: `
+				<div>
+					<h2>AAAAAAA</h2>
+					<p>BBBBB</p>
+					<p>CCCCC</p>
+				</div>`
+			})
+			// 2.注册组件
+			Vue.component(`my-cpm`, cpmC)
+			
+			const app = new Vue({
+				el: '#app',
+				data : {
+					message: 'ABC'
+				}
+					
+			});
+			
+		</script>
+	</body>
+</html>

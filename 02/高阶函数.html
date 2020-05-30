@@ -16,35 +16,77 @@
 			
 			const nums = [10,20,30,200,250,150,40,99]
 			
-			//需求：获取小于100的数
+			//需求1：获取大于100的数
+			//需求2：将新数组的数*2
+			//需求3：将新数组的数相加
 			
-			//1.	filter函数的使用
-			//过滤器filter，需要回调函数,但必须返回一个Boolean值
-			//当返回true时，函数内部会自动将这次回调的n加入到新的数组
-			//当返回false时，函数内部会过滤掉这次的n
-			 let newNums = nums.filter(function(n) {
-				return n<100
+	/* 		// ES5方法
+			let newNums = []
+			for(let n of nums) {
+				if(n > 100) {
+					newNums.push(n)
+				}
+			}
+			
+			let newNums2 = []
+			for(let n of newNums) {
+				newNums2.push(n * 2)
+			}
+			
+			let newNums3 = 0
+			for(let n of newNums2) {
+				newNums3 += n
+			}
+			 */
+			
+			// ES6写法
+			/* 	//1.	filter函数的使用
+				//过滤器filter，需要回调函数,但必须返回一个Boolean值
+				//当返回true时，函数内部会自动将这次回调的n加入到新的数组
+				//当返回false时，函数内部会过滤掉这次的n
+				 let newNums = nums.filter(function(n) {
+					return n<100
+				})
+				//2.  map函数的使用
+				//map每次返回一个值
+				let newNums2 = newNums.map(function(n) {
+					return n * 2
+				})
+				//reduce函数的使用
+				//作用：对数组中所有的内容进行汇总 */
+			
+		/* 	let newNums = nums.filter(function(n) {
+				return n > 100
 			})
 			
-			//需求：将新数组的数*2
-			
-			//2.  map函数的使用
-			
-			//map每次返回一个值
 			let newNums2 = newNums.map(function(n) {
 				return n * 2
 			})
 			
+			let newNums3 = newNums2.reduce(function(preValue,n) {
+				return preValue + n
+			},0) */
 			
-			//需求：将新数组的数相加
-			
-			//reduce函数的使用
-			//作用：对数组中所有的内容进行汇总
+			// console.log(newNums);
+			// console.log(newNums2);
 			
 			
 			
-			console.log(newNums);
-			console.log(newNums2);
+			// 链式写法
+			/* let newNums3 = nums.filter(function(n) {
+				return n > 100
+			}).map(function(n) {
+				return n * 2
+			}).reduce(function(preValue,n) {
+				return preValue + n
+			},0) */
+			
+		
+			//箭头函数写法
+			let newNums3 = nums.filter(n => n >100).map(n => n * 2).reduce((preValue,n) => preValue + n)
+			
+			
+			
 			console.log(newNums3);
 		</script>
 	</body>

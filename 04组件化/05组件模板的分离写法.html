@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+	</head>
+	<body>
+		
+		<div id="app">
+					<cpn></cpn>
+					<cpn2></cpn2>
+		</div>
+		
+		
+		
+		<!-- 1.模板cpn -->
+		<script type="text/x-handlebars-template" id="cpnC">
+			<div>
+				<h2>A1A1A1</h2>
+				<p>111</p>
+				<p>AAA</p>
+			</div>
+		</script>
+		
+		
+		<!-- 2. 使用template标签 -->
+		<template id="cpnC2">
+			<div>
+				<h2>A2A2A2</h2>
+				<p>222</p>
+				<p>AAA</p>
+			</div>
+		</template>
+		
+		<script src="../js/vue.js"></script>
+		<script>
+			
+			
+			
+			
+			//注册一个全局组件
+			Vue.component('cpn', {
+				template: '#cpnC'
+			})
+			
+			Vue.component('cpn2', {
+				template: '#cpnC2'
+			})
+			
+			
+			
+			
+			const app = new Vue({
+				el: '#app',
+				data : {
+					message: 'ABC'
+				}
+				
+				
+				
+			});
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

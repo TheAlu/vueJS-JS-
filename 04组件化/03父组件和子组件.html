@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			<cpm2></cpm2>
+			
+		</div>
+		
+		
+		
+		<script src="../js/vue.js"></script>
+		<script>
+			
+			
+			//子组件
+			const cpmC1 = Vue.extend({
+				template: `
+				<div>
+				<h2>AAA</h2>
+				<p>B</p>
+				</div>
+				`
+			})
+			
+			//父组件
+			const cpmC2 = Vue.extend({
+				template: `
+				<div>
+				<h2>A2A2A2</h2>
+				<p>B2</p>
+				<cpm1></cpm1>
+				</div>
+				`,
+				components: {
+					cpm1: cpmC1,
+				}
+			})
+				
+				//根组件/root组件
+			const app = new Vue({
+				el: '#app',
+				data : {
+					message: 'ABC'
+				},
+				components: {
+					// cpm1: cpmC1,
+					cpm2: cpmC2
+				}		
+				
+			});
+			
+					
+		</script>
+	</body>
+</html>
