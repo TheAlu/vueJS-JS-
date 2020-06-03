@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			<cpn :number1="num1" 
+					 :number2="num2"
+					 @num1change="num1change"
+					 @num2change="num2change"></cpn>
+			
+		</div>
+		
+		
+		
+		
+		<template id="cpn">
+			<div>
+				
+				<h2>props:{{number1}}</h2>
+				
+				<h2>data:{{numb1}}</h2>
+				<!-- <input type="text" v-model="numb1" /> -->
+				<input type="text" :value="numb1" @input="number1Input" />
+				
+				<h2>props:{{number2}}</h2>
+				
+				<h2>data:{{numb2}}</h2>
+				<!-- <input type="text" v-model="numb2" /> -->
+				<input type="text" :value="numb2" @input="number2Input" />
+			</div>
+		</template>
+		
+		
+		
+		
+		
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script>
+			
+			
+			
+			
+			
+			//父组件
+			const app = new Vue({
+				el:'#app',
+				data: {
+					num1: 1,
+					num2: 0
+				},
+				//父组件方法，取到value值
+				methods: {
+					num1change(value) {
+						this.num1 = Number(value)
+					},
+					num2change(value) {
+						this.num2 = Number(value)
+					}
+				},
+				//子组件
+				components: {
+					cpn: {
+						template:'#cpn',
+						//父传子props
+						props: {
+							number1: Number,
+							number2: Number
+						},
+						//定义一个中间转换的值
+						data() {
+							return {
+								numb1: this.number1,
+								numb2: this.number2
+							}
+							
+						},
+						//子组件的方法
+						methods: {
+							number1Input(event) {
+								//将input中的value赋值给num1中
+								this.numb1 = event.target.value;
+								//为了让父组件将可以修改值，发出一个事件
+								this.$emit('num1change',this.numb1);
+								//同时修改num2的值
+								this.numb2 = this.numb1 * 100
+								//子传父
+								this.$emit('num2change',this.numb2);
+							},
+							number2Input(event) {
+								this.numb2 = event.target.value;
+								this.$emit('num2change',this.numb2);
+								
+								//同时修改num1的值
+								this.numb1 = this.numb2 / 100
+								this.$emit('num1change',this.numb1);
+							}
+						}
+					}
+					
+				}
+				
+				
+			})
+		</script>
+	</body>
+</html>

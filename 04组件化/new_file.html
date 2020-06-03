@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			<cpn :cmovies="movies" :cmessage="message"></cpn>
+		</div>
+		
+		
+		<template id="cpn">
+			<div>
+				<h2>{{cmessage}}</h2>
+				<li v-for="m in cmovies">{{m}}</li>
+			</div>
+		</template>
+		
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script>
+			
+			
+			// 注册子组件cpn,并用props通信从父组件传来cmovies与cmessage
+			const cpn = {
+				template: '#cpn',
+				// props: ['cmovies','cmessage'],
+				
+				
+				// props: {
+				// 	cmovies: Array,
+				// 	cmessage: String
+				// },
+				
+				props: {
+					cmovies: {
+						type: Array,
+						default() {
+							return ['A','B']
+						}
+					},
+					cmessage: {
+						type: String,
+						// 如果根组件不提供元素值，默认值为aaaaaaaa
+						default: 'aaaaaaaaaa',
+						
+					}
+				},
+				data() {
+					return {
+						
+					}
+				},
+				methods: {
+					
+				}
+			}
+			
+			
+			// 根组件,即父组件,在其中绑定message,movies的元素,以及子组件cpn
+			const app = new Vue({
+				el:'#app',
+				data: {
+					message: 'hallo',
+					movies: ['A','V','I']
+				},
+				methods: {
+					
+				},
+				components: {
+					cpn
+				}
+			})
+		</script>
+	</body>
+</html>

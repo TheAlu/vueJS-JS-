@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<!-- 父组件模板 -->
+		<div id="app">
+			
+			<!-- v-on:btn-click监听 -->
+			<cpn @btn-click="cpnClick"></cpn>
+			
+		</div>
+		
+		
+		<!-- 子组件模板 -->
+		<template id="cpn">
+			<div>
+				<button v-for="i in categories" @click="btnClick(i)">{{i.name}}</button>
+				
+			</div>
+		</template>
+		
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script>
+			
+			const cpn = {
+				template: '#cpn',
+				data() {
+					return {
+						categories: [
+							{id: 'aaa', name: '热门推荐'},
+							{id: 'bbb', name: '手机数码'},
+							{id: 'ccc', name: '家用电器'},
+							{id: 'ddd', name: '电脑办公'},
+						]
+					}
+				},
+				methods: {
+					btnClick(i) {
+						console.log(i.name);
+						
+						//子组件发送事件名
+						this.$emit('btn-click',i);
+					}
+				}
+			
+			}
+				
+			const app = new Vue({
+				el:'#app',
+				data: {
+					message: 'hallo'
+				},
+				components: {
+					cpn
+				},
+				methods: {
+					cpnClick(i) {
+						console.log('cpnClick',i);
+					}
+					
+				}
+			})
+		</script>
+	</body>
+</html>

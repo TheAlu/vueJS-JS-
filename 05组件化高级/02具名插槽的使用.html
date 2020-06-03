@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<cpn>
+				<template v-slot:left>返回</template>
+				<template v-slot:center>标题</template>
+				<template v-slot:right>搜索</template>
+				
+			</cpn>
+			
+		</div>
+		
+		
+		
+		<template id="cpn">
+			<div>
+				<slot name="left"><span>左边</span></slot>
+				<slot name="center"><span>中间</span></slot>
+				<slot name="right"><span>右边</span></slot>
+				
+			</div>
+		</template>
+		
+		
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script>
+			
+			
+			
+			const app = new Vue({
+				el:'#app',
+				data: {
+					message: 'hallo'
+				},
+				components: {
+					cpn: {
+						template: '#cpn',
+						
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

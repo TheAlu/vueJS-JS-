@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			<cpn></cpn>
+			<cpn></cpn>
+			<cpn ref="aaa"></cpn>
+			<button @click="btnClick">按钮</button>
+		</div>
+		
+		<template id="cpn">
+			<div>
+				
+				我是子组件
+			</div>
+		</template>
+		
+		
+		
+		<script src="../js/vue.js"></script>
+		<script>
+			
+			
+			
+			
+			
+			
+			const app = new Vue({
+				el: '#app',
+				data : {
+					message: 'ABC'
+				},
+				methods: {
+					btnClick() {
+						// console.log(this.$children);
+						// for(let i of this.$children) {
+						// 	console.log(i.name);
+						// 	i.showMessage();
+						// }
+						
+						
+						//使用ref时需在页面调用子组件给添加ref属性： ref="aaa"，然后在监听中绑定$refs
+						console.log(this.$refs.aaa.name);
+					}
+				},
+				components: {
+					cpn: {
+						template: '#cpn',
+						methods: {
+							showMessage() {
+								console.log('showMessage');
+							}
+						},
+						data() {
+							return {
+								name: '我是子组件的name'
+							}
+						}
+					}
+				}
+				
+				
+				
+			});
+			
+			
+			
+			
+		</script>
+	</body>
+</html>
