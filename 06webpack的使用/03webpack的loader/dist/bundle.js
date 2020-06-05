@@ -67,14 +67,15 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const {add,mul} = __webpack_require__(1);
-
-console.log(add(5,6));
-console.log(mul(5,6));
+"use strict";
 
 
+var _require = __webpack_require__(1),
+    add = _require.add,
+    mul = _require.mul;
 
-
+console.log(add(5, 6));
+console.log(mul(5, 6));
 
 //依赖css文件
 __webpack_require__(2);
@@ -84,22 +85,23 @@ __webpack_require__(2);
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-function add(num1,num2) {
+"use strict";
+
+
+function add(num1, num2) {
 	return num1 + num2;
 }
 
-
-function mul(num1,num2) {
+function mul(num1, num2) {
 	return num1 * num2;
 }
 
-
 module.exports = {
-	add,
-	mul
-}
+	add: add,
+	mul: mul
+};
 
 /***/ }),
 /* 2 */
@@ -411,7 +413,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(7);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, "body {\r\n\t/* background-color: red; */\r\n\tbackground: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n}", ""]);
+exports.push([module.i, "body {\n\t/* background-color: red; */\n\tbackground: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n}", ""]);
 // Exports
 module.exports = exports;
 
